@@ -1,0 +1,20 @@
+{% extends 'buscador/base.html' %}
+{% load custom_filters %}  <!-- Carga los filtros personalizados -->
+
+{% block content %}
+    <h2>Resultados para "{{ query }}"</h2>
+
+    {% if num_resultados == 0 %}
+        <p>No se encontraron resultados.</p>
+    {% else %}
+        <p>Resultados encontrados: {{ num_resultados }} en {{ resultados.tiempo|floatformat:3 }} segundos.</p>
+        <ul>
+            {% for url in resultados.urls %}
+                <li>
+                    <a href="{{url}}">{{ url }}</a> : {{ resultados.url_word_counts|get_by_key:url }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
+

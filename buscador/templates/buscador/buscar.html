@@ -1,0 +1,14 @@
+{% extends 'buscador/base.html' %}
+
+{% block content %}
+  <div class="d-flex justify-content-center align-items-center">
+    <h1 class="display-4">Maestro del saber</h1>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <form class="form-inline" method="get" action="{% url 'buscar' %}">
+      <input class="rounded-lg" type="text" name="query" placeholder="buscar" />
+      <button class="btn btn-danger" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+{% endblock %}
